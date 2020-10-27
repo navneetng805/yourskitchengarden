@@ -1,0 +1,64 @@
+{% extends 'shop/basic.html' %}
+{% block title %} Search Results {% endblock %}
+{% load static %}
+
+{% block css %}
+.parallaxbg {
+/* The image used */
+background-image: url('{% static "images/bg.jpg" %}');
+}
+.parallaxbg2{
+  background-image: url('{% static "images/bg2.jpg" %}');
+}
+.parallaxbgsearch{
+  background-image: url('{% static "images/searchbg.jpg" %}');
+}
+.pbase{
+/* Set a specific height */
+height: 100%;
+
+/* Create the parallax scrolling effect */
+background-attachment: fixed;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}
+.card > img{
+height:282px;
+width:285px;
+}
+.card-body > p{
+text-align: center;
+}
+{% endblock %}
+
+
+{% block body %}
+<body class="pbase parallaxbgsearch">
+
+<div class="container-fluid">
+<h1> <font color="white"> Search Results :  </h1>
+{% if allProds|length < 1 %}
+<p> <b> {{query}} </b> not found. Please try something else. </font> </p>
+{% endif %}
+{% for product in allProds %}
+<div class="row" style="width:100%; margin: auto">
+  <div class="card mx-auto my-3 bg-success" style="width: 18rem">
+    <img src="/media/{{product.image}}" class="card-img-top border border-success" alt="...">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb bg-light" style="border-radius: 0%;">
+        <li class="breadcrumb-item mx-auto" aria-current="page">
+          <font size="4px" color="green"><b>{{product.product_name}}</b></font>
+        </li>
+      </ol>
+    </nav>
+    <div class="card-body">
+      <p class="card-text"> <font color="white"> {{product.desc|slice:"90"}}.. <br> <br> <a href="/items/{{product.id}}"> <button class="btn btn-outline btn-light"> Read More </button> </a> </font> </p>
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+</div>
+</body>
+{% endblock %}

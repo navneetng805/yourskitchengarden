@@ -1,0 +1,20 @@
+{% extends 'shop/basic.html' %}
+{% block title %} Plants - {{product.category}} - {{product.product_name}} {% endblock %}
+{% load static %}
+
+{% block body %}
+<body class="bg-dark">
+<h1 align="center" class="bg-light"> <font color="green"> {{product.product_name}}</font> </h1>
+<div class="container-fluid my-2 bg-dark">
+  <div class="row">
+    <div class="col-md-5 my-2">
+      <img class="mx-auto border border-success" src="/media/{{product.image}}" height="100%" width="100%">
+    </div>
+    <div class="col-md-7 my-2">
+      <p class="my-auto bg-light border border-success rounded p-1"> <font size="5" color="green"> {{product.desc}} </font> </p>
+      
+    </div>
+  </div>
+</div>
+</body>
+{% endblock %}

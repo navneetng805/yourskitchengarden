@@ -1,0 +1,30 @@
+{% extends 'shop/basic.html' %}
+{% block title %} Contact Us {% endblock %}
+{% load static %}
+
+{% block body %}
+<body class="bg-dark" style="background-image: url('{% static "images/contactbg.jpg" %}'); background-size: cover; height : 100% ">
+<div class="container my-2 rounded">
+  <h2 align="center"> <font color="white"> Contact Us  </h2>
+  <form method="POST" action="/contact/"> {% csrf_token %}
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp">
+    </div>
+    <div class="form-group">
+      <label for="email">Email address</label>
+      <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone Number</label>
+      <input type="text" class="form-control" id="phone" name="phone">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Message : </label>
+      <textarea class="form-control " name="content" id="content" cols="30" rows="5"></textarea>
+    </div> </font>
+    <button type="submit" class="btn btn-success mb-2" style="margin : auto">Submit</button>
+  </form>
+</div>
+</body>
+{% endblock %}
