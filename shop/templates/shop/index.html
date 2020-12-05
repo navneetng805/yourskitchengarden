@@ -1,5 +1,15 @@
 {% extends 'shop/basic.html' %}
 {% block title %} Home {% endblock %}
+{% block css %}
+.vp a{
+  background-color:#28a745;
+  color:white;
+}
+.vp a:hover{
+color : #d4edda;
+text-decoration : none;
+}
+{% endblock %}
 {% block body %}
 {% load static %}
 <div class="alert alert-success alert-dismissible fade show my-0" role="alert">
@@ -8,7 +18,14 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-  <div class="block">
+  <div class="container-fluid">
+    <div class="vp row"> 
+      <div class="col-md-12 bg-success" style="text-align: center;">
+    <a href="/plants/"> View Plants -> </a> 
+</div>
+</div>
+  </div>
+    <div class="block">
     <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
         <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
